@@ -1,0 +1,51 @@
+body, html {
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.pomodoro-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.pomodoro-settings {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid blue;
+}
+
+.pomodoro-display {
+    display: grid;
+    grid-template-areas: 
+    "play reset"
+    "time time"
+    "pause stop";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 15% 70% 15%;
+    border: 1px solid red;
+    justify-items: center;
+    align-items: center;
+}
+
+.pomodoro-display > .display-play {
+    grid-area: play;
+}
+
+.pomodoro-display > .display-reset {
+    grid-area: reset;
+}
+
+.pomodoro-display > .display-time {
+    grid-area: time;
+}
+
+.pomodoro-display > .display-pause {
+    grid-area: pause;
+}
+
+.pomodoro-display > .display-stop {
+    grid-area: stop;
+}
