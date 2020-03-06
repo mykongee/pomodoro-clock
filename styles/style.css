@@ -12,12 +12,57 @@ body, html {
     width: 100%;
 }
 
-/* Settins container */
+/* Display and Controls Container */
+.pomodoro-display {
+    display: grid;
+    grid-template-areas: 
+    "play reset"
+    "time time"
+    "pause stop";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 15% 70% 15%;
+    border: 1px solid red;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 1em;
+    width: 20em;
+    height: 10em;
+}
+
+.pomodoro-display > .display-play {
+    grid-area: play;
+    width: 3em;
+    height: 3em;
+}
+
+.pomodoro-display > .display-reset {
+    grid-area: reset;
+    width: 3em;
+    height: 3em;
+}
+
+.pomodoro-display > .display-time {
+    grid-area: time;
+    font-size: 5em;
+}
+
+.pomodoro-display > .display-pause {
+    grid-area: pause;
+    width: 3em;
+    height: 3em;
+}
+
+.pomodoro-display > .display-stop {
+    grid-area: stop;
+    width: 3em;
+    height: 3em;
+}
+
+/* Settings container */
 .pomodoro-settings {
     display: flex;
     flex-direction: row;
     border: 1px solid blue;
-    margin-bottom: 1em;
 }
 
 .settings-session {
@@ -36,8 +81,8 @@ body, html {
 
 .settings-session > .settings-up-btn {
     grid-area: up;
-    width: 1em;
-
+    width: 1.5em;
+    height: 1.5em;
 }
 
 .settings-session > .settings-session-time {
@@ -46,8 +91,8 @@ body, html {
 
 .settings-session > .settings-down-btn {
     grid-area: down;
-    width: 1em;
-
+    width: 1.5em;
+    height: 1.5em;
 }
 
 .settings-break {
@@ -66,8 +111,8 @@ body, html {
 
 .settings-break > .settings-up-btn {
     grid-area: up;
-    width: 1em;
-}
+    width: 1.5em;
+    height: 1.5em;}
 
 .settings-break > .settings-break-time {
     grid-area: session-break-time;
@@ -76,40 +121,6 @@ body, html {
 
 .settings-break > .settings-down-btn {
     grid-area: down;
-    width: 1em;
-
-}
-
-/* Display and Controls Container */
-.pomodoro-display {
-    display: grid;
-    grid-template-areas: 
-    "play reset"
-    "time time"
-    "pause stop";
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 15% 70% 15%;
-    border: 1px solid red;
-    justify-items: center;
-    align-items: center;
-}
-
-.pomodoro-display > .display-play {
-    grid-area: play;
-}
-
-.pomodoro-display > .display-reset {
-    grid-area: reset;
-}
-
-.pomodoro-display > .display-time {
-    grid-area: time;
-}
-
-.pomodoro-display > .display-pause {
-    grid-area: pause;
-}
-
-.pomodoro-display > .display-stop {
-    grid-area: stop;
+    width: 1.5em;
+    height: 1.5em;
 }
