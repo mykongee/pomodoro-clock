@@ -79,7 +79,7 @@ body, html {
     margin: 0em 1em 0em 1em;
 }
 
-.settings-session > .settings-up-btn {
+.settings-session > .session-up-btn {
     grid-area: up;
     width: 1.5em;
     height: 1.5em;
@@ -89,7 +89,7 @@ body, html {
     grid-area: session-settings-time;
 }
 
-.settings-session > .settings-down-btn {
+.settings-session > .session-down-btn {
     grid-area: down;
     width: 1.5em;
     height: 1.5em;
@@ -109,7 +109,7 @@ body, html {
     margin: 0em 1em 0em 1em;
 }
 
-.settings-break > .settings-up-btn {
+.settings-break > .break-up-btn {
     grid-area: up;
     width: 1.5em;
     height: 1.5em;}
@@ -119,7 +119,7 @@ body, html {
 }
 
 
-.settings-break > .settings-down-btn {
+.settings-break > .break-down-btn {
     grid-area: down;
     width: 1.5em;
     height: 1.5em;
