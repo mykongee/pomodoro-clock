@@ -108,7 +108,7 @@ function initTimer(sessionTime) {
 function startTimer(interval) {
     let remaining = interval;
     countdownId = setInterval(function() {
-        if (isPaused === false && isStopped === false) {
+        if (isPaused === false) {
             //let currentTime = new Date().getTime();
             //let remaining = targetTime - currentTime;
             remaining -= 1000;

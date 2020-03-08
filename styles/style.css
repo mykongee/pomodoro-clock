@@ -1,6 +1,8 @@
 body, html {
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
+    background: #307595;
+    color: #000405;
 }
 
 /* Whole container */
@@ -21,12 +23,16 @@ body, html {
     "pause stop";
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 15% 70% 15%;
-    border: 1px solid red;
     justify-items: center;
     align-items: center;
-    margin-bottom: 1em;
+    margin: 3em 0em 3em 0em;
     width: 20em;
     height: 10em;
+    background: #307595;
+    box-shadow:  11px 11px 22px #275f79, 
+    -11px -11px 22px #398bb1;
+    border-radius: 20px;
+
 }
 
 .pomodoro-display > .display-play {
@@ -62,7 +68,10 @@ body, html {
 .pomodoro-settings {
     display: flex;
     flex-direction: row;
-    border: 1px solid blue;
+    background: #307595;
+    box-shadow:  11px 11px 22px #275f79, 
+    -11px -11px 22px #398bb1;
+    border-radius: 10px;
 }
 
 .settings-session {
