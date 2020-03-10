@@ -1,9 +1,7 @@
 // Main sesssion display and control buttons
 const displayTime = document.querySelector(".display-time");
-const playBtn = document.querySelector(".display-play");
-const pauseBtn = document.querySelector(".display-pause");
+const playPauseBtn = document.querySelector(".display-play-pause");
 const stopBtn = document.querySelector(".display-stop");
-const resetBtn = document.querySelector(".display-reset");
 
 // Session settings time display and controls
 const settingsTime = document.querySelector(".settings-session-time");
@@ -20,6 +18,7 @@ const setTimeClass = "settings-session-time"; // Used in increment/decrement fun
 // Timer control flags
 let sessionTimerRunning = false;
 let isPaused = false;
+let breakTimerFlag = false;
 
 // Global setInterval() id to allow instant, flexible use of clearInterval();
 let countdownId;
@@ -48,12 +47,8 @@ let settingsTimeBinder = new DataBinder(settingsTime, 25);
 let breakTimeBinder = new DataBinder(breakTime, 5);
 let sessionTimeBinder = new DataBinder(displayTime, "25:00")
 
-playBtn.addEventListener("click", function() {
+playPauseBtn.addEventListener("click", function() {
     play();
-})
-
-pauseBtn.addEventListener("click", function() {
-    pause();
 })
 
 stopBtn.addEventListener("click", function() {
@@ -81,10 +76,28 @@ function play() {
         initTimer(settingsTimeBinder.data);
     } 
     isPaused = false;
+    
+    // Change play button functionality and image to pause button
+    playPauseBtn.addEventListener("click", function() {
+        pause();
+    })
+    playPauseBtn.removeEventListener("click", function() {
+        play();
+    })
+    playPauseBtn.src = "./images/icons8-pause.svg";
 }
 
 function pause() {
     isPaused = true;
+
+    // Change pause button functionality and image back to play button
+    playPauseBtn.addEventListener("click", function() {
+        play();
+    })
+    playPauseBtn.removeEventListener("click", function() {
+        pause();
+    })
+    playPauseBtn.src = "./images/icons8-play.svg";
 }
 
 function stop() {
@@ -96,7 +109,11 @@ function stop() {
 function initTimer(sessionTime) {
     if (sessionTimerRunning === false){
         sessionTimerRunning = true; // Ensures only one timer is running at a time
-        
+        if (!breakTimerFlag) {
+            displayTime.style.color = "green"; // Working session color
+        } else {
+            displayTime.style.color = "white"; // Break session color
+        }
         let currentTime = new Date().getTime();
         let targetTime = new Date(currentTime + sessionTime * 60000).getTime();
         let interval = targetTime - currentTime;
@@ -109,6 +126,7 @@ function startTimer(interval) {
     let remaining = interval;
     countdownId = setInterval(function() {
         if (isPaused === false) {
+            
             //let currentTime = new Date().getTime();
             //let remaining = targetTime - currentTime;
             remaining -= 1000;
@@ -118,10 +136,18 @@ function startTimer(interval) {
                 sessionTimeBinder.change(`${minutes}:${seconds}`);
             } else if (remaining > 0) {
                 sessionTimeBinder.change(`${minutes}:0${seconds}`);
-            } else if (remaining < 0) {
+            } else if (remaining < 0 && breakTimerFlag === false) {
                 clearInterval(countdownId);
-                sessionTimeBinder.change("0:00")
+                sessionTimeBinder.change("0:00");
                 sessionTimerRunning = false;
+                breakTimerFlag = true;
+                initTimer(breakTimeBinder.data);
+            } else if (remaining < 0 && breakTimerFlag === true) {
+                clearInterval(countdownId);
+                sessionTimeBinder.change("0:00");
+                sessionTimerRunning = false;
+                breakTimerFlag = false;
+                initTimer(sessionTimeBinder.data);
             }
             console.log(remaining);
         } 
@@ -129,22 +155,33 @@ function startTimer(interval) {
 }
 
 function incrementTime(binder) {
-    // Ensures consistency of settings time and session time
-    if (binder.element.className === setTimeClass) {
-        binder.change(binder.data + 1); 
-        sessionTimeBinder.change(`${binder.data}:00`);
-    } else {
-        binder.change(binder.data + 1);
+    // Disallow increasing time if pomodoro timer is running
+    if (sessionTimerRunning === false) {
+
+        // Ensures consistency of settings time and session time
+        if (binder.element.className === setTimeClass) {
+            binder.change(binder.data + 1); 
+            sessionTimeBinder.change(`${binder.data}:00`);
+        } else {
+            binder.change(binder.data + 1);
+        } 
     }
+
 }
 
 function decrementTime(binder) {
-    if (binder.data > 1) {
-        if (binder.element.className === setTimeClass){
-            binder.change(binder.data - 1);
-            sessionTimeBinder.change(`${binder.data}:00`);
-        } else {
-            binder.change(binder.data - 1);
+    // Disallow decreasing time if pomodoro timer is running
+    if (sessionTimerRunning === false) {
+
+        // Disallow negative timer numbers
+        if (binder.data > 1) {
+            if (binder.element.className === setTimeClass){
+                binder.change(binder.data - 1);
+                sessionTimeBinder.change(`${binder.data}:00`);
+            } else {
+                binder.change(binder.data - 1);
+                }
         }
     }
+
 }

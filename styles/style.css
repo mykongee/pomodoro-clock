@@ -1,8 +1,12 @@
 body, html {
     font-size: 24px;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #307595;
-    color: #000405;
+    font-family: 'Sen', sans-serif;
+    background: #633c91;
+    color: #c3aedb;
+}
+
+input:focus {
+    outline: none;
 }
 
 /* Whole container */
@@ -18,31 +22,25 @@ body, html {
 .pomodoro-display {
     display: grid;
     grid-template-areas: 
-    "play reset"
     "time time"
-    "pause stop";
+    "play stop";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 15% 70% 15%;
+    grid-template-rows: 85% 15%;
     justify-items: center;
     align-items: center;
-    margin: 3em 0em 3em 0em;
+    margin: 2em 0em 3em 0em;
     width: 20em;
     height: 10em;
-    background: #307595;
-    box-shadow:  11px 11px 22px #275f79, 
-    -11px -11px 22px #398bb1;
-    border-radius: 20px;
+    background: #633c91;
+    box-shadow: 14px 14px 28px #4d2f71, 
+    -14px -14px 28px #7949b1;
+    border-radius: 40px;
+    padding: 1em;
 
 }
 
-.pomodoro-display > .display-play {
+.pomodoro-display > .display-play-pause {
     grid-area: play;
-    width: 3em;
-    height: 3em;
-}
-
-.pomodoro-display > .display-reset {
-    grid-area: reset;
     width: 3em;
     height: 3em;
 }
@@ -50,12 +48,6 @@ body, html {
 .pomodoro-display > .display-time {
     grid-area: time;
     font-size: 5em;
-}
-
-.pomodoro-display > .display-pause {
-    grid-area: pause;
-    width: 3em;
-    height: 3em;
 }
 
 .pomodoro-display > .display-stop {
@@ -68,9 +60,9 @@ body, html {
 .pomodoro-settings {
     display: flex;
     flex-direction: row;
-    background: #307595;
-    box-shadow:  11px 11px 22px #275f79, 
-    -11px -11px 22px #398bb1;
+    background: #633c91;
+    box-shadow:  10px 10px 24px #4d2f71, 
+    -10px -10px 24px #7949b1;
     border-radius: 10px;
 }
 
