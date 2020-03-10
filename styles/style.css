@@ -1,8 +1,8 @@
 body, html {
     font-size: 24px;
     font-family: 'Sen', sans-serif;
-    background: #633c91;
-    color: #c3aedb;
+    background: #996fcc;
+    color: rgba(69, 17, 212, 0.753);
 }
 
 input:focus {
@@ -31,9 +31,9 @@ input:focus {
     margin: 2em 0em 3em 0em;
     width: 20em;
     height: 10em;
-    background: #633c91;
-    box-shadow: 14px 14px 28px #4d2f71, 
-    -14px -14px 28px #7949b1;
+    background: #996fcc;;
+    box-shadow: 14px 14px 28px #77579f, 
+                -14px -14px 28px #bb87f9;
     border-radius: 40px;
     padding: 1em;
 
@@ -41,8 +41,18 @@ input:focus {
 
 .pomodoro-display > .display-play-pause {
     grid-area: play;
-    width: 3em;
-    height: 3em;
+    background: #996fcc;;
+    border-radius: 75px;
+    box-shadow: 7px 7px 21px #77579f, 
+                -7px -7px 21px #bb87f9;
+    width: 3.5em;
+    height: 3.5em;
+    padding: 0.5em;
+}
+
+.display-play-pause:active {
+    box-shadow: inset 7px 7px 21px #77579f, 
+                inset -7px -7px 21px #bb87f9;
 }
 
 .pomodoro-display > .display-time {
@@ -52,17 +62,26 @@ input:focus {
 
 .pomodoro-display > .display-stop {
     grid-area: stop;
-    width: 3em;
-    height: 3em;
+    background: #996fcc;;
+    border-radius: 75px;
+    box-shadow: 7px 7px 21px #77579f, 
+                -7px -7px 21px #bb87f9;
+    width: 3.5em;
+    height: 3.5em;
+    padding: 0.5em;
 }
 
+.display-stop:active {
+    box-shadow: inset 7px 7px 21px #77579f, 
+                inset -7px -7px 21px #bb87f9;
+}
 /* Settings container */
 .pomodoro-settings {
     display: flex;
     flex-direction: row;
-    background: #633c91;
-    box-shadow:  10px 10px 24px #4d2f71, 
-    -10px -10px 24px #7949b1;
+    background: #996fcc;;
+    box-shadow:  10px 10px 24px #77579f, 
+    -10px -10px 24px #bb87f9;
     border-radius: 10px;
 }
 

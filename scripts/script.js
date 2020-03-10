@@ -109,11 +109,7 @@ function stop() {
 function initTimer(sessionTime) {
     if (sessionTimerRunning === false){
         sessionTimerRunning = true; // Ensures only one timer is running at a time
-        if (!breakTimerFlag) {
-            displayTime.style.color = "green"; // Working session color
-        } else {
-            displayTime.style.color = "white"; // Break session color
-        }
+
         let currentTime = new Date().getTime();
         let targetTime = new Date(currentTime + sessionTime * 60000).getTime();
         let interval = targetTime - currentTime;
@@ -136,18 +132,20 @@ function startTimer(interval) {
                 sessionTimeBinder.change(`${minutes}:${seconds}`);
             } else if (remaining > 0) {
                 sessionTimeBinder.change(`${minutes}:0${seconds}`);
-            } else if (remaining < 0 && breakTimerFlag === false) {
+            } else if (remaining < 0 && breakTimerFlag === false) { // Switch to break timer
                 clearInterval(countdownId);
                 sessionTimeBinder.change("0:00");
                 sessionTimerRunning = false;
                 breakTimerFlag = true;
+                displayTime.style.color = "green"; // Break session color
                 initTimer(breakTimeBinder.data);
-            } else if (remaining < 0 && breakTimerFlag === true) {
-                clearInterval(countdownId);
+            } else if (remaining < 0 && breakTimerFlag === true) { // Switch back to work timer
+                clearInterval(countdownId); 
                 sessionTimeBinder.change("0:00");
                 sessionTimerRunning = false;
                 breakTimerFlag = false;
-                initTimer(sessionTimeBinder.data);
+                displayTime.style.color = "rgba(69, 17, 212, 0.753)"; // Working session color
+                initTimer(settingsTimeBinder.data);
             }
             console.log(remaining);
         } 
