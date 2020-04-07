@@ -1,8 +1,8 @@
 body, html {
     font-size: 24px;
     font-family: 'Sen', sans-serif;
-    background: #996fcc;
-    color: rgba(69, 17, 212, 0.753);
+    background: #cecece;
+    color: rgb(0, 0, 0);
 }
 
 input:focus {
@@ -31,28 +31,28 @@ input:focus {
     margin: 2em 0em 3em 0em;
     width: 20em;
     height: 10em;
-    background: #996fcc;;
-    box-shadow: 14px 14px 28px #77579f, 
-                -14px -14px 28px #bb87f9;
-    border-radius: 40px;
+    background: #cecece;
+    box-shadow: 18px 18px 36px #afafaf, 
+    -18px -18px 36px #ededed;
+    border-radius: 65px;
     padding: 1em;
 
 }
 
 .pomodoro-display > .display-play-pause {
     grid-area: play;
-    background: #996fcc;;
+    background: #cecece;
     border-radius: 75px;
-    box-shadow: 7px 7px 21px #77579f, 
-                -7px -7px 21px #bb87f9;
+    box-shadow: 6px 6px 12px #777777, 
+    -6px -6px 12px #ffffff;
     width: 3.5em;
     height: 3.5em;
     padding: 0.5em;
 }
 
 .display-play-pause:active {
-    box-shadow: inset 7px 7px 21px #77579f, 
-                inset -7px -7px 21px #bb87f9;
+    box-shadow: inset 7px 7px 21px #777777, 
+                inset -7px -7px 21px #ffffff;
 }
 
 .pomodoro-display > .display-time {
@@ -62,26 +62,26 @@ input:focus {
 
 .pomodoro-display > .display-stop {
     grid-area: stop;
-    background: #996fcc;;
+    background: #cecece;
     border-radius: 75px;
-    box-shadow: 7px 7px 21px #77579f, 
-                -7px -7px 21px #bb87f9;
+    box-shadow: 6px 6px 12px #777777, 
+    -6px -6px 12px #ffffff;
     width: 3.5em;
     height: 3.5em;
     padding: 0.5em;
 }
 
 .display-stop:active {
-    box-shadow: inset 7px 7px 21px #77579f, 
-                inset -7px -7px 21px #bb87f9;
+    box-shadow: inset 7px 7px 21px #777777, 
+                inset -7px -7px 21px #ffffff;
 }
 /* Settings container */
 .pomodoro-settings {
     display: flex;
     flex-direction: row;
-    background: #996fcc;;
-    box-shadow:  10px 10px 24px #77579f, 
-    -10px -10px 24px #bb87f9;
+    background: #cecece;
+    box-shadow:  12px 12px 24px #676767, 
+    -12px -12px 24px #ffffff;
     border-radius: 10px;
 }
 
