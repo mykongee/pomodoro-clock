@@ -1,5 +1,5 @@
 # pomodoro-clock
-Experimenting with [Neuromorphic UI](https://uxdesign.cc/neumorphism-in-user-interfaces-b47cef3bf3a6)
+Experimenting with [Neuromorphic UI](https://uxdesign.cc/neumorphism-in-user-interfaces-b47cef3bf3a6)  
 Viewable at https://mykongee.github.io/pomodoro-clock/
 
 
